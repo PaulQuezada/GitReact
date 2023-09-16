@@ -102,9 +102,9 @@ export default function header() {
         <h1 className="ml-10 mt-10 text-4xl font-black"> Sobre el Algoritmo</h1>
 
         <div className="grid grid-cols-3 gap-4 p-5 h-screen">
-          <div className="bg-purple-500 rounded-lg p-5 text-white font-black h-1/4">LOS TEAM PLAYA XDXDXD </div>
-          <div className="bg-purple-500 rounded-lg p-5 text-white font-black h-1/4">LOS TEAM PLAYA XDXDXD </div>
-          <div className="bg-purple-500 rounded-lg p-5 text-white font-black h-1/4">LOS TEAM PLAYA XDXDXD </div>
+          <div className="bg-purple-500 rounded-lg p-5 text-white font-black h-2/5">LOS TEAM PLAYA XDXDXD </div>
+          <div className="bg-purple-500 rounded-lg p-5 text-white font-black h-2/5">LOS TEAM PLAYA XDXDXD </div>
+          <div className="bg-purple-500 rounded-lg p-5 text-white font-black h-2/5">LOS TEAM PLAYA XDXDXD </div>
         </div>
       </div>
     </div>
