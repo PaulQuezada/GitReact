@@ -1,10 +1,16 @@
 import React from "react";
+import { useNavigate } from 'react-router-dom';
 import CrownIcon from "../assets/crown.png";
 import RewardIcon from "../assets/reward.png";
 import { Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, Button, useDisclosure } from "@nextui-org/react";
 
 export default function PremiumDialog() {
     const { isOpen, onOpen, onOpenChange } = useDisclosure();
+    const navigate = useNavigate();   // Cambio aquí
+
+    const handleObtenerClick = () => {
+        navigate("/premium");   // Cambio aquí
+    };
     return (
         <>
             <Button
@@ -40,7 +46,7 @@ export default function PremiumDialog() {
                                 <Button color="danger" variant="light" onPress={onClose}>
                                     Cerrar
                                 </Button>
-                                <Button color="primary" onPress={onClose}>
+                                <Button color="primary" onPress={handleObtenerClick}>
                                     Obtener
                                 </Button>
                             </ModalFooter>

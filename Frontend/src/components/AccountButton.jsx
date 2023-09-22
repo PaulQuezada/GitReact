@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from 'react-router-dom';
 import CrownIcon from "../assets/crown.png";
 import DashboardIcon from "../assets/dashboard.png";
 import HomeIcon from "../assets/home.png";
@@ -9,6 +10,11 @@ import RewardIcon from "../assets/reward.png";
 
 export default function AccountButton() {
     const { isOpen, onOpen, onOpenChange } = useDisclosure();
+    const navigate = useNavigate();   // Cambio aquí
+
+    const handleObtenerClick = () => {
+        navigate("/premium");   // Cambio aquí
+    };
     return (
         <>
             <Dropdown backdrop="blur">
@@ -19,7 +25,7 @@ export default function AccountButton() {
                             src: "https://i.pravatar.cc/150?u=a04258114e29026302d",
                         }}
                         className="transition-transform text-white hover:text-opacity-100 transform-gpu hover:scale-105"
-                        name="Tony Reichert"
+                        name="Paul Quezada"
                         description={<span style={{ color: 'yellow' }}>Free Account</span>}
                     />
                 </DropdownTrigger>
@@ -72,7 +78,7 @@ export default function AccountButton() {
                                 <Button color="danger" variant="light" onPress={onClose}>
                                     Cerrar
                                 </Button>
-                                <Button color="primary" onPress={onClose}>
+                                <Button color="primary" onPress={handleObtenerClick}>
                                     Obtener
                                 </Button>
                             </ModalFooter>

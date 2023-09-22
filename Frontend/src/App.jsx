@@ -4,6 +4,7 @@ import Signin from "./paginas/signin.jsx";
 import Dashboard from "./paginas/dashboard.jsx";
 import AuthLayout from "./layout/AuthLayout.jsx";
 import Principal from "./paginas/principal.jsx";
+import Getpremium from "./paginas/getpremium.jsx";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <Route path="/" element={<AuthLayout/>}>
           <Route path="signin" element={<Signin/>}/>
           <Route path="login" element={<Login/>}/>
+          <Route path="premium" element={<Getpremium/>}/>
           <Route index element={<Principal/>}/>
           <Route path="dashboard" element={<Dashboard/>}/>
         </Route>

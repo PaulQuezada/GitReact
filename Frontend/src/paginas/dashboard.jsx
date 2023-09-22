@@ -6,6 +6,9 @@ import settingsImage from '../assets/settings.svg';
 import logoImage from '../assets/logo.png';
 import AccountButton from "../components/AccountButton";
 import CrownIcon from "../assets/crown.png";
+import PenIcon from "../assets/pen.png";
+import DeleteIcon from "../assets/delete.png";
+import RocketIcon from "../assets/rocket.gif";
 import PremiumDialog from '../components/PremiumDialog';
 
 
@@ -17,7 +20,7 @@ export default function dashboard() {
         // Establecer un temporizador para ocultar la pantalla de carga después de un tiempo específico
         const timer = setTimeout(() => {
             setLoading_pag(false);
-        }, 2000);  // 3000 milisegundos = 3 segundos
+        }, 1000);  // 3000 milisegundos = 3 segundos
 
         // Limpiar el temporizador si el componente se desmonta antes de que se complete el tiempo
         return () => clearTimeout(timer);
@@ -32,13 +35,11 @@ export default function dashboard() {
             ) : (
                 <div className="w-screen h-screen bg-gray-100">
                     {/* header */}
-                    <div class="w-full flex h-20 mb-10 text-center  bg-gradient-to-br from-blue-300 to-purple-500 ">
-                        <div class="flex-1">
-                            <div className="ml-10">
-                                <img src={logoImage} style={{ width: '80px', height: '80px' }} />
-                            </div>
+                    <div className="w-full flex h-20 mb-10 text-center  bg-gradient-to-br from-blue-300 to-purple-500 ">
+                        <div className="flex-1">
+                            <h1 className='flex justify-start text-2xl text-white font-black mt-5 ml-12'>TR</h1>
                         </div>
-                        <div class="flex-1">
+                        <div className="flex-1">
                             <div className="flex justify-end p-3 gap-5 mt-3">
                                 <PremiumDialog />
                                 <AccountButton />˝
@@ -46,8 +47,8 @@ export default function dashboard() {
                         </div>
                     </div>
                     {/* configs */}
-                    <div class="flex justify-center mx-auto w-4/5 bg-gray-500 mb-5 rounded-xl bg-gradient-to-br from-blue-300 to-purple-500">
-                        <div class="flex-1">
+                    <div className="flex justify-center mx-auto w-4/5 bg-gray-500 mb-5 rounded-xl bg-gradient-to-br from-blue-300 to-purple-500">
+                        <div className="flex-1">
                             <div className="flex p-3">
                                 <Avatar className="ml-10" radius="lg" size="lg" src="https://i.pravatar.cc/150?u=a04258114e29026302d" />
                                 <div className="mt-1">
@@ -57,7 +58,7 @@ export default function dashboard() {
                             </div>
                         </div>
 
-                        <div class="flex-1">
+                        <div className="flex-1">
                             <div className="flex justify-end mt-5 mr-10">
                                 <Button size="sm" className="mr-5 text-white hover:text-opacity-100 transform-gpu hover:scale-105" variant="bordered">
                                     Crear nuevo proyecto
@@ -72,17 +73,27 @@ export default function dashboard() {
                     {/* contents */}
                     <div className="flex mx-auto w-4/5 h-2/3 rounded-xl bg-gradient-to-br from-blue-300 to-purple-500">
                         <div className="relative">
-                            <div class="absolute mt-5 ml-10 text-3xl text-white font-black">Proyectos</div>
+                            <div className="absolute mt-5 ml-10 text-3xl text-white font-black">Proyectos</div>
+                        </div>
+                        <div className="mt-10 row-span-3 w-full grid grid-cols-3 gap-4 text-center p-10">
+                            {Array(6).fill().map((_, index) => (
+                                <div key={index} className="bg-gray-100 opacity-50 rounded-xl transition-transform hover:text-opacity-100 transform-gpu hover:scale-105">
+                                    <ButtonGroup className='flex justify-end mt-2 mr-2' variant="bordered">
+                                        <Button isIconOnly >
+                                            <img src={PenIcon} alt="Settings" style={{ width: '18px', height: '18px' }} />
+                                        </Button>
+                                        <Button isIconOnly>
+                                            <img src={DeleteIcon} alt="Settings" style={{ width: '18px', height: '18px' }} />
+                                        </Button>
+                                    </ButtonGroup>
+                                    <div>
+                                        <h1 className='font-black'>Proyecto {index+1}</h1>
+                                        <img className='flex mx-auto opacity-10' src={RocketIcon} alt="Settings" style={{ width: '100px', height: '100px' }} />
+                                    </div>
+                                </div>
+                            ))}
                         </div>
 
-                        <div className="mt-10 row-span-3 w-full grid grid-cols-3 gap-4 text-center p-10">
-                            <div className="bg-gray-300 rounded-xl"></div>
-                            <div className="bg-gray-300 rounded-xl"></div>
-                            <div className="bg-gray-300 rounded-xl"></div>
-                            <div className="bg-gray-300 rounded-xl"></div>
-                            <div className="bg-gray-300 rounded-xl"></div>
-                            <div className="bg-gray-300 rounded-xl"></div>
-                        </div>
                     </div>
                 </div>
             )}
